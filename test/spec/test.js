@@ -3,12 +3,18 @@
 (function () {
     'use strict';
 
-    describe('Give it some context', function () {
-        describe('maybe a bit more context here', function () {
-            it('should run here few assertions', function () {
-              var answer = 2;
-              expect(2).to.equal(answer);
-            });
+    describe('Chat constructor', function () {
+
+    	var user = new ChatObject('Matt', 'Hello');
+
+        it('Should bulid the chat object', function () {
+        	
+        	expect(user).to.be.instanceof(ChatObject);
+        	
+        });
+
+        it('should contain certain keys', function() {
+        	expect(user).to.contain("Matt", "Hello");
         });
     });
 })();
