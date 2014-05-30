@@ -12,20 +12,18 @@
         	expect(user).to.be.instanceof(ChatObject);
         	
         });
-
+/*
         it('should contain certain keys', function() {
 
-        	expect(user).to.contain("Matt", "Hello");
+        	expect(user).to.contain("");
         });
-    });
+    });*/
 
-    describe("Button press", function() {
-
-    	it('should display a prompt for you to sign in', function() {
-
-    		expect($('.button').click).to.equal(function() {
-    			prompt("What's your name?"); })
+    /*describe("loadChat function", function() {
+    	it('should load the chat server', function() {
+    		expect()
     	})
-    })
+    })*/
+
 
 })();
