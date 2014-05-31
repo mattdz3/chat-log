@@ -3,14 +3,14 @@
 
 var user = "TheHamBurgler";
 
+var time = Date.now();
+
 var chatLog = _.template($('.chat').text());
 
 function loadChat() {
-
 $.getJSON('http://tiny-pizza-server.herokuapp.com/collections/chat-messages').done(function(data) {
 
   renderChat(data);
-
   });
 }
 
@@ -43,8 +43,6 @@ $('.submit').click(function() {
   var message = $('.input-box').val();
   $('.input-box').val('');
 
-  var time = Date.now();
-
   var sentMessage = new ChatObject(user, message, time);
 
   refresh(sentMessage);
@@ -55,7 +53,7 @@ $('.button').click(function() {
 	prompt("What's your name?");
 });
 
-
+loadChat();
 setInterval(loadChat, 1000);
 
 

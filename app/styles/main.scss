@@ -28,8 +28,15 @@ body {
     color: white;
     width: 800px;
     height: 600px;
-}
+    overflow: scroll;
 
+    .chat-log {
+        display: block;
+        border-bottom: 1px solid white;
+        line-height: 80px;
+        padding-left: 8px;
+    }
+}
 .display-user-name {
     margin-top: 20px;
     display: inline-block;
