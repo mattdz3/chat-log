@@ -1,40 +1,41 @@
 'use strict';
 
-
-var user = "TheHamBurgler";
+var user = newName();
 
 var time = Date.now();
 
 var chatLog = _.template($('.chat').text());
 
-function loadChat() {
-$.getJSON('http://tiny-pizza-server.herokuapp.com/collections/chat-messages').done(function(data) {
-
-  renderChat(data);
-  });
+function ChatObject (user, message, time) {
+  this.user = user;
+  this.message = message;
+  this.time = time; 
 }
 
+function loadChat() {
+  $.getJSON('http://tiny-pizza-server.herokuapp.com/collections/chat-messages').done(function(data) {
+
+  renderChat(data);
+ 
+  });
+}
+ 
 function renderChat(data) {
   $('.container').empty();
+
     var i
-  for (i = 0; i < data.length - 1; i += 1) {
+    for (i = 0; i < data.length - 1; i += 1) {
 
       if (data[i].message) {
 
       var render = chatLog(data[i]);
 
-      $('.container').prepend(render);
+      $('.container').append(render);
     }
   }
 }
 
-function ChatObject (user, message, time) {
-	this.user = user;
-	this.message = message;
-	this.time = time;	
-}
-
-function refresh(info) {
+function post(info) {
   $.post('http://tiny-pizza-server.herokuapp.com/collections/chat-messages', info)
 }
 
@@ -45,13 +46,16 @@ $('.submit').click(function() {
 
   var sentMessage = new ChatObject(user, message, time);
 
-  refresh(sentMessage);
+  post(sentMessage);
 })
 
-
-$('.button').click(function() {
-	prompt("What's your name?");
-});
+function newName (myNewName) {
+  $('.button').click(function() {
+    $('.display-user-name').empty();
+  	var myNewName = prompt("What's your name?");
+    $('.display-user-name').prepend(myNewName);
+  });
+}
 
 loadChat();
 setInterval(loadChat, 1000);

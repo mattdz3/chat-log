@@ -31,12 +31,18 @@
             <div class="title">KneeChat</div>
             <button class="button">SIGN IN</button>
             <div class="display-user-name"></div>
+
+            
         </div>
 
         <div class="container">
             <script type="text/template" class='chat'> 
             
-                <div class='chat-log'> <%= user %>: <%= message %> <%= time %> </div>
+                <div class='chat-log'> 
+                    <div class='user'> <%= user %> : </div> 
+                    <div class='message'> <%= message %> </div>
+                    <div class='time'> <%= time %> </div> 
+                </div>
 
             </script>
         </div>
