@@ -4,12 +4,26 @@ var user = newName();
 
 var time = Date.now();
 
+var appID = "MattD";
+
 var chatLog = _.template($('.chat').text());
 
-function ChatObject (user, message, time) {
+var i;
+
+function ChatObject (user, message, time, appID) {
   this.user = user;
   this.message = message;
   this.time = time; 
+  this.appID = appID;
+}
+
+function newName (myNewName) {
+  $('.button').click(function() {
+    $('.display-user-name').empty();
+    var myNewName = prompt("What's your name?");
+    $('.display-user-name').prepend(myNewName);
+
+  });
 }
 
 function loadChat() {
@@ -22,8 +36,7 @@ function loadChat() {
  
 function renderChat(data) {
   $('.container').empty();
-
-    var i
+  
     for (i = 0; i < data.length - 1; i += 1) {
 
       if (data[i].message) {
@@ -44,18 +57,10 @@ $('.submit').click(function() {
   var message = $('.input-box').val();
   $('.input-box').val('');
 
-  var sentMessage = new ChatObject(user, message, time);
+  var sentMessage = new ChatObject(user, message, time, appID);
 
   post(sentMessage);
 })
-
-function newName (myNewName) {
-  $('.button').click(function() {
-    $('.display-user-name').empty();
-  	var myNewName = prompt("What's your name?");
-    $('.display-user-name').prepend(myNewName);
-  });
-}
 
 loadChat();
 setInterval(loadChat, 1000);
