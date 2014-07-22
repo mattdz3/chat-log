@@ -5,7 +5,7 @@
 
     describe('Chat constructor', function () {
 
-    	var user = new ChatObject('Matt');
+    	// var user = new ChatObject('Matt');
 
         it('Should bulid the chat object', function () {
         	
@@ -29,13 +29,13 @@
     });
 
     describe('post function', function() {
-    	it('should post a new obj into the server', function() {
+    	it('should post a new obj to the server', function() {
 
     		expect()
     	});
     });
 
-    describe('newName function', function() {
+/*    describe('newName function', function() {
     	it('should set the name given to the prompt as user', function() {
 
     		function newName () {
@@ -48,6 +48,6 @@
 
     		expect(user).to.equal(myNewName);
     	});
-    });
+    });*/
 
 })();

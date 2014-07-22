@@ -22,6 +22,7 @@ body {
 }
 
 .container {
+    margin-top: 50px;
     border-radius: 4px;
     align: center;
     background-color: #134024;
@@ -61,6 +62,7 @@ body {
     float: right;
     height: 30px;
     width: 150px;
+    overflow: scroll;
 }
 
 .header {
@@ -86,12 +88,16 @@ body {
 }
 
 .input-box {
+    margin-left: 30px;
+    margin-top: 25px;
     display: inline-block;
     border: 1px solid black;
     width: 640px;
 }
 
 .submit {
+    margin-top: 25px;
+    margin-left: 20px;
     display: inline-block;
     background-color: #134024;
     line-height: 25px;
