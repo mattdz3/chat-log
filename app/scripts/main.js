@@ -1,8 +1,8 @@
 'use strict';
 
-var user = 'Time Wizard';
+var user = $('.input-name').val();
 
-var time = Date.now()/1000;
+var time = Date.now();
 
 var chatLog = _.template($('.chat').text());
 
@@ -36,14 +36,13 @@ function renderChat(data) {
   }
 }
 
-  $('.button').click(function() {
+$('.button').click(function() {
+  $('.display-user-name').empty();
+  var user = $('.input-name').val();
 
-    $('.display-user-name').empty();
-    var myNewName = prompt("What's your name?");
-
-    $('.display-user-name').prepend(myNewName);
-
-  });
+  $('.display-user-name').prepend(user);
+  $('.input-name').empty();
+});
 
 function post(info) {
   $.post('http://tiny-pizza-server.herokuapp.com/collections/chat-messages', info)
